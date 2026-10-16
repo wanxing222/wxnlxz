@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>万兴能量闪租</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background: #0a0e17;
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        /* ========== 顶部导航 ========== */
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #4da6ff;
+        }
+
+        .lang-select {
+            background: #1a1f2e;
+            color: #fff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* ========== 顶部标语 ========== */
+        .banner-tag {
+            text-align: center;
+            background: linear-gradient(90deg, #00336650, #00666650);
+            border: 1px solid #00ccff60;
+            border-radius: 30px;
+            padding: 8px 20px;
+            margin-bottom: 30px;
+            color: #80e0ff;
+            font-size: 15px;
+        }
+
+        /* ========== 主标题 ========== */
+        h1 {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #99ccff, #66ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        .features-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            color: #88ccff;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        /* ========== 主卡片 ========== */
+        .main-card {
+            background: #121620;
+            border: 1px solid #223344;
+            border-radius: 16px;
+            padding: 28px 24px;
+            margin-bottom: 40px;
+        }
+
+        .price-info {
+            text-align: center;
+            color: #80e0ff;
+            font-size: 16px;
+            margin-bottom: 16px;
+            line-height: 2;
+        }
+
+        .address-row {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .address-label {
+            color: #88aacc;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 6px;
+            text-align: left;
+        }
+
+        .address-text {
+            color: #4dd0ff;
+            font-family: monospace;
+            font-size: 15px;
+            word-break: break-all;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            color: #aabbcc;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            background: #1a1f2e;
+            border: 1px solid #2a3344;
+            border-radius: 8px;
+            padding: 12px 14px;
+            color: #fff;
+            font-size: 15px;
+            outline: none;
+        }
+
+        input::placeholder {
+            color: #556677;
+        }
+
+        .btn-free {
+            width: 100%;
+            background: linear-gradient(90deg, #00aa44, #00cc55);
+            border: none;
+            border-radius: 25px;
+            padding: 14px;
+            color: #fff;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 10px 0 16px;
+            box-shadow: 0 4px 12px #00aa4433;
+        }
+
+        .btn-save {
+            width: 100%;
+            background: #00333360;
+            border: 1px solid #00aaaa60;
+            border-radius: 25px;
+            padding: 12px;
+            color: #66ffff;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        /* ========== FAQ 部分 ========== */
+        .faq-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: #ff6666;
+            margin-bottom: 24px;
+        }
+
+        .faq-item {
+            background: #121620;
+            border: 1px solid #223344;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 14px;
+        }
+
+        .faq-q {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .q-icon {
+            width: 28px;
+            height: 28px;
+            background: #004466;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            color: #66ccff;
+            flex-shrink: 0;
+        }
+
+        .faq-a {
+            color: #aabbcc;
+            font-size: 15px;
+            padding-left: 38px;
+            line-height: 1.7;
+        }
+
+        /* ========== 底部官网提示 ========== */
+        .footer-note {
+            text-align: center;
+            background: #00223344;
+            border: 1px solid #00668855;
+            border-radius: 8px;
+            padding: 14px;
+            margin-top: 24px;
+            color: #44ccff;
+            font-size: 15px;
+        }
+
+        .footer-note a {
+            color: #66eeff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 480px) {
+            h1 { font-size: 32px; }
+            .faq-title { font-size: 22px; }
+            .faq-q { font-size: 16px; }
+            .faq-a { font-size: 14px; }
+            body { padding: 14px; }
+            .main-card { padding: 20px 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 顶部 -->
+        <div class="header-top">
+            <div class="logo">万兴能量闪租</div>
+            <select class="lang-select">
+                <option selected>简体中文</option>
+                <option>English</option>
+            </select>
+        </div>
+
+        <!-- 标语 -->
+        <div class="banner-tag">
+            ⚡ 全网最低价 · 极速自动到账 · 每天送免费次数！
+        </div>
+
+        <!-- 主标题 -->
+        <h1>能量闪租</h1>
+        <div class="features-row">
+            <span>⦿ 24小时无人值守</span>
+            <span>⚡ 随时随地闪租</span>
+            <span>✓ 安全稳定</span>
+        </div>
+
+        <!-- 主卡片 -->
+        <div class="main-card">
+            <div class="price-info">
+                免费次数用完，可以使用以下低价能量。<br>
+                <strong>2 TRX = 65000【1笔能量】</strong><br>
+                <strong>4 TRX = 131000【2笔能量】</strong><br>
+                点击自动复制地址
+            </div>
+
+            <div class="address-row">
+                <span class="address-label"></span>
+                <span class="address-text" id="copyAddr">TV2TuxxvGgzD2tQ8C6VDpqa7yMvn8AAmcK</span>
+            </div>
+
+            <div class="form-group">
+                <label>接收能量地址</label>
+                <input type="text" placeholder="请输入接收能量地址" id="addr1">
+            </div>
+
+            <div class="form-group">
+                <label>转出目标地址</label>
+                <input type="text" placeholder="请先填写接收能量地址" id="addr2">
+            </div>
+
+            <div style="text-align: center; color:#557799; font-size:14px; margin-bottom:8px;">先填写此地址</div>
+
+            <button class="btn-free" id="freeBtn">⚡ 立即领取免费能量</button>
+            <button class="btn-save">
+                🎙️ 使用能量闪租 <span style="color:#99ffff">每笔立省≈11.7</span> <span style="color:#00ff88">(节省 87%)</span>
+            </button>
+        </div>
+
+        <!-- FAQ 部分 -->
+        <h2 class="faq-title">❓ 常见问题</h2>
+
+        <div class="faq-item">
+            <div class="faq-q">
+                <span class="q-icon">?</span>
+                怎么购买能量？
+            </div>
+            <div class="faq-a">
+                直接向页面展示的收款地址转账即可，系统会自动识别您的转账金额并即刻派发相应的能量到您的账户。
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">
+                <span class="q-icon">?</span>
+                多久到账？
+            </div>
+            <div class="faq-a">
+                通常在转账后 3-6 秒内自动到账。全天24小时无人值守，随时转账随时到账。
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">
+                <span class="q-icon">?</span>
+                转账金额不对怎么办？
+            </div>
+            <div class="faq-a">
+                请严格按照 2TRX 或者 4TRX 转账。如果金额不符，系统可能无法自动派发。
+            </div>
+        </div>
+
+        <!-- 底部 -->
+        <div class="footer-note">
+            避免失联 · 牢记官网 唯一官网：<a href="https://trontrc.xyz" target="_blank">https://trontrc.xyz</a>
+        </div>
+    </div>
+
+    <script>
+        // 点击复制地址功能
+        const copyAddr = document.getElementById('copyAddr');
+        copyAddr.addEventListener('click', function() {
+            const text = this.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                const original = this.style.color;
+                this.style.color = '#00ff88';
+                this.textContent = '✓ 已复制！';
+                setTimeout(() => {
+                    this.style.color = original;
+                    this.textContent = text;
+                }, 1500);
+            });
+        });
+
+        // 表单联动提示
+        const addr1 = document.getElementById('addr1');
+        const addr2 = document.getElementById('addr2');
+        addr1.addEventListener('input', function() {
+            if (this.value.trim() !== '') {
+                addr2.placeholder = '请输入转出目标地址';
+            } else {
+                addr2.placeholder = '请先填写接收能量地址';
+            }
+        });
+
+        // 领取按钮点击反馈
+        const freeBtn = document.getElementById('freeBtn');
+        freeBtn.addEventListener('click', function() {
+            this.textContent = '✓ 处理中...';
+            setTimeout(() => {
+                this.textContent = '⚡ 立即领取免费能量';
+                alert('请先填写接收能量地址后再领取！');
+            }, 800);
+        });
+    </script>
+</body>
+</html>
